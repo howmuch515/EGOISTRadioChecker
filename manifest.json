@@ -4,7 +4,8 @@
     "manifest_version": 2,
     "description": "Check Radio!",
     "permissions": [
-      "declarativeContent"
+      "declarativeContent",
+      "storage"
     ],
     "content_scripts": [{
       "matches": ["https://egoist-fc.jp/movies/*"],
