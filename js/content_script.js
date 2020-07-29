@@ -47,7 +47,6 @@ $.each(RADIO_LIST, (i,v) => {
     // set checked flag based "checked_set".
     chrome.storage.sync.get("checked_set", res => {
         let a = new Set(res.checked_set)
-        console.log(res.checked_set)
         check_box.prop('checked', a.has(nth))
     })
 
