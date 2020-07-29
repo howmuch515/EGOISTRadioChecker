@@ -31,7 +31,7 @@ let delete_check_log = nth => {
 const RADIO_LIST = $("#movie-index > div > div.panel-body > ul > li")
 let abstractNumber = radio_dom => {
     let a = $(radio_dom).find("a > div > div.col-xs-8.col-sm-10.text > h3")
-    return a[0].textContent.match(/Break the Spell（第(\d+)回配信/)[1]
+    return parseInt(a[0].textContent.match(/Break the Spell（第(\d+)回配信/)[1])
 }
 
 $.each(RADIO_LIST, (i,v) => {
@@ -44,8 +44,10 @@ $.each(RADIO_LIST, (i,v) => {
         value: nth
     })
 
+    // set checked flag based "checked_set".
     chrome.storage.sync.get("checked_set", res => {
         let a = new Set(res.checked_set)
+        console.log(res.checked_set)
         check_box.prop('checked', a.has(nth))
     })
 
