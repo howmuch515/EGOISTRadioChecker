@@ -51,6 +51,11 @@ let delete_check_log = (storage_name, nth) => {
     })
 }
 
+let clear_check_log = (storage_name) => {
+    chrome.storage.sync.remove(storage_name, () => {
+    })
+}
+
 let build_checkbox = (storage_name, nth) => {
     let check_box = $("<input>", {
         id: `check-box-${nth}`,
