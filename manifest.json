@@ -7,6 +7,14 @@
       "declarativeContent",
       "storage"
     ],
+    "background": {
+      "scripts": ["./js/background.js"],
+      "persistent": false
+    },
+    "page_action": {
+      "default_title": "egoist radio checker",
+      "default_popup": "popup.html"
+    },
     "content_scripts": [{
       "matches": ["https://egoist-fc.jp/movies/tags/radio-nonamechelly/*"],
       "js": [

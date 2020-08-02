@@ -13,9 +13,9 @@ try {
     let nth = parseInt($("meta[property='og:title']").attr("content").match(/第(\d+)回/)[1])
     let category = ""
 
-    if ($("meta[property='og:title']").attr("content").indexOf("僕の考えた名前のないchelly")) {
+    if ($("meta[property='og:title']").attr("content").indexOf("僕の考えた名前のないchelly") > -1) {
         category = STORAGE_NAMES["nonamechelly"]
-    } else if ($("meta[property='og:title']").attr("content").indexOf("Break the Spell")) {
+    } else if ($("meta[property='og:title']").attr("content").indexOf("Break the Spell") > -1) {
         category = STORAGE_NAMES["breakthespell"]
     } else {
         throw "非対応のページです。"
