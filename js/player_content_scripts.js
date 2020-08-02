@@ -1,5 +1,4 @@
 const BASE_URL = "https://twitter.com/intent/tweet"
-const STORAGE_NAMES = {"nonamechelly": "nonamechelly", "breakthespell": "breakthespell"}
 
 let build_tweet_url = (text, url, hashtag_list) => {
     let tweet_url = `${BASE_URL}?text=${encodeURI(text)}&url=${url}&hashtags=${hashtag_list.join("%2C")}`

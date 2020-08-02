@@ -1,3 +1,18 @@
+const STORAGE_NAMES = {"nonamechelly": "nonamechelly", "breakthespell": "breakthespell"}
+
+let abstractNumber = radio_dom => {
+    let a = $(radio_dom).find("a > div > div.col-xs-8.col-sm-10.text > h3")
+    try {
+        let result =  parseInt(a[0].textContent.match(/第(\d+)回/)[1])
+        return result
+    } catch (e) {
+        console.error("放送回のパースに失敗しました。")
+        console.error(e)
+        return undefined
+    }
+
+}
+
 let put_check_log = (storage_name, nth) => {
     chrome.storage.sync.get(storage_name, res => {
         let req_set
