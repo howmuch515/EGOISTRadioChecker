@@ -1,4 +1,4 @@
-const STORAGE_NAMES = {"nonamechelly": "nonamechelly", "breakthespell": "breakthespell"}
+const STORAGE_NAMES = {nonamechelly: "nonamechelly", breakthespell: "breakthespell"}
 
 let abstractNumber = radio_dom => {
     let a = $(radio_dom).find("a > div > div.col-xs-8.col-sm-10.text > h3")
@@ -25,6 +25,7 @@ let put_check_log = (storage_name, nth) => {
         }
         let send_data = {}
         send_data[storage_name] = req_set
+        console.log(send_data)
 
         chrome.storage.sync.set(send_data, () => {
         });
@@ -43,6 +44,7 @@ let delete_check_log = (storage_name, nth) => {
         }
         let send_data = {}
         send_data[storage_name] = req_set
+        console.log(send_data)
 
         chrome.storage.sync.set(send_data, () => {
         });
