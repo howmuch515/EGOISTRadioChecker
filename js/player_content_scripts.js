@@ -1,4 +1,5 @@
 const BASE_URL = "https://twitter.com/intent/tweet"
+const STORAGE_NAMES = {"nonamechelly": "nonamechelly", "breakthespell": "breakthespell"}
 
 let build_tweet_url = (text, url, hashtag_list) => {
     let tweet_url = `${BASE_URL}?text=${encodeURI(text)}&url=${url}&hashtags=${hashtag_list.join("%2C")}`
@@ -11,8 +12,17 @@ let hashtag_list = ["EGOIST"]
 // main
 try {
     let nth = parseInt($("meta[property='og:title']").attr("content").match(/第(\d+)回/)[1])
+    let category = ""
 
-    let check_box = build_checkbox(nth)
+    if ($("meta[property='og:title']").attr("content").indexOf("僕の考えた名前のないchelly")) {
+        category = STORAGE_NAMES["nonamechelly"]
+    } else if ($("meta[property='og:title']").attr("content").indexOf("Break the Spell")) {
+        category = STORAGE_NAMES["breakthespell"]
+    } else {
+        throw "非対応のページです。"
+    }
+
+    let check_box = build_checkbox(category, nth)
 
     // tweet button
     let video_url = $("meta[property='og:url']").attr("content").match(/https:\/\/egoist-fc.jp\/movies\/\d+/)
