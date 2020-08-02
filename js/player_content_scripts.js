@@ -10,7 +10,7 @@ let hashtag_list = ["EGOIST"]
 
 // main
 try {
-    let nth = parseInt($("meta[property='og:title']").attr("content").match(/Break the Spell（第(\d+)回配信）/)[1])
+    let nth = parseInt($("meta[property='og:title']").attr("content").match(/第(\d+)回/)[1])
 
     let check_box = build_checkbox(nth)
 
