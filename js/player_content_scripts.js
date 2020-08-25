@@ -5,7 +5,7 @@ let build_tweet_url = (text, url, hashtag_list) => {
     return tweet_url
 }
 
-let build_text = nth => `EGOISTのラジオ第${nth}回を視聴しました！`
+let build_text = (title, nth) => `EGOISTのWebラジオ~${title}~第${nth}回を視聴しました！`
 let hashtag_list = ["EGOIST"]
 
 // main
@@ -14,9 +14,11 @@ try {
     let category = ""
 
     if ($("meta[property='og:title']").attr("content").indexOf("僕の考えた名前のないchelly") > -1) {
-        category = STORAGE_NAMES["nonamechelly"]
+        category = STORAGE_NAMES[0].id
+        title = STORAGE_NAMES[0].jp_title
     } else if ($("meta[property='og:title']").attr("content").indexOf("Break the Spell") > -1) {
-        category = STORAGE_NAMES["breakthespell"]
+        category = STORAGE_NAMES[1].id
+        title = STORAGE_NAMES[1].jp_title
     } else {
         throw "非対応のページです。"
     }
@@ -26,7 +28,7 @@ try {
     // tweet button
     let video_url = $("meta[property='og:url']").attr("content").match(/https:\/\/egoist-fc.jp\/movies\/\d+/)
 
-    let tweet_url = build_tweet_url(build_text(nth), video_url, hashtag_list)
+    let tweet_url = build_tweet_url(build_text(title, nth), video_url, hashtag_list)
 
     let tweet_link = $("<button>").text("Tweet!").click(() => {
         window.open(tweet_url, "_blank")

@@ -5,7 +5,7 @@ $.each(RADIO_LIST, (i,v) => {
 
     // skip parse miss.
     if (nth !== undefined) {
-        let check_box = build_checkbox(STORAGE_NAMES.nonamechelly, nth)
+        let check_box = build_checkbox(STORAGE_NAMES[0].id, nth)
         $(v).prepend(check_box)
     }
 })

@@ -1,4 +1,7 @@
-const STORAGE_NAMES = {nonamechelly: "nonamechelly", breakthespell: "breakthespell"}
+const STORAGE_NAMES = [
+    {id: "nonamechelly", "jp_title": "僕の考えた名前のないchelly"},
+    {id: "breakthespell", "jp_title": "Break the Spell"}
+]
 
 let abstractNumber = radio_dom => {
     let a = $(radio_dom).find("a > div > div.col-xs-8.col-sm-10.text > h3")
